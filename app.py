@@ -6,7 +6,7 @@ headers = {"Authorization": "Bearer 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"}
 
 def query(file):
     response = requests.post(API_URL, headers=headers, data=file)
-    return response.json()
+    return response.text
 
 def main():
     st.title("Handwritten Form Text Extraction")
@@ -16,7 +16,6 @@ def main():
     
     if uploaded_file is not None:
         output = query(uploaded_file.read())
-        st.write(type(output))
         st.write("Extracted Text:")
         st.write(output)
 
