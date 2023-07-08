@@ -16,7 +16,7 @@ def main():
     
     if uploaded_file is not None:
         output = query(uploaded_file.read())
-        
+        st.write(type(output))
         st.write("Extracted Text:")
         st.write(output)
 
