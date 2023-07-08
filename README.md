@@ -32,7 +32,7 @@ The selected option will lead the user to the corresponding text extraction func
 ![image](https://github.com/KetanAgrawal2002/BoardBridgehack/assets/89201634/e311011b-9725-4b77-8ee8-f06765b66eb3)
 
 ## Document Forms Text Extractor:
-![image](https://github.com/KetanAgrawal2002/BoardBridgehack/assets/89201634/a57b53af-fd4f-435b-8f1a-d25f73d6685e)
+![image](https://github.com/KetanAgrawal2002/BoardBridgehack/assets/89201634/cacaf868-f6bb-4422-8fde-310670c957d6)
 
 ## Handwritten Text Extractor:
 ![image](https://github.com/KetanAgrawal2002/BoardBridgehack/assets/89201634/1adc2f91-0cb6-4801-a9a6-4a5ad225e6cf)
