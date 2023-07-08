@@ -1,21 +1,14 @@
 import streamlit as st
 import requests
-from PIL import Image
-from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 
-@st.cache(allow_output_mutation=True)
-def load_model():
-    processor = TrOCRProcessor.from_pretrained('microsoft/trocr-base-handwritten')
-    model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-base-handwritten')
+API_URL = "https://api-inference.huggingface.co/models/microsoft/trocr-base-handwritten"
+headers = {"Authorization": "Bearer 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"}
 
-
-def findans(file):
-    processor, model = load_model() 
-    image = Image.open(file).convert("RGB")
-    pixel_values = processor(images=image, return_tensors="pt").pixel_values
-    generated_ids = model.generate(pixel_values)
-    generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
-    return generated_text
+def query(filename):
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers=headers, data=data)
+    return response.json()
 
 def main():
     st.title("Handwritten Form Text Extraction")
@@ -24,10 +17,10 @@ def main():
     uploaded_file = st.file_uploader("Upload Image", type=['jpg', 'jpeg', 'png'])
     
     if uploaded_file is not None:
-        generated_text = findans(uploaded_file)
+        output = query(uploaded_file.name)
         
         st.write("Extracted Text:")
-        st.write(generated_text)
+        st.write(output)
 
 if __name__ == "__main__":
     main()
