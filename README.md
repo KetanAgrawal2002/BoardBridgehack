@@ -1,6 +1,7 @@
 ## Broadbridge Hackathon
 Google drive link for video presentation:
-Live Deme website link:
+
+Live Deme website link: https://textractorbbh.netlify.app/
 
 # Text Extraction Demo
 
