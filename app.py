@@ -4,10 +4,8 @@ import requests
 API_URL = "https://api-inference.huggingface.co/models/microsoft/trocr-base-handwritten"
 headers = {"Authorization": "Bearer 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"}
 
-def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers=headers, data=data)
+def query(file):
+    response = requests.post(API_URL, headers=headers, data=file)
     return response.json()
 
 def main():
@@ -17,7 +15,7 @@ def main():
     uploaded_file = st.file_uploader("Upload Image", type=['jpg', 'jpeg', 'png'])
     
     if uploaded_file is not None:
-        output = query(uploaded_file.name)
+        output = query(uploaded_file.read())
         
         st.write("Extracted Text:")
         st.write(output)
