@@ -10,7 +10,7 @@ def query(file):
     return response.text
 
 def main():
-    st.title("Documented Form Text Extraction")
+    st.title("Handwritten Text Extraction")
     st.write("Upload an image of a handwritten form to extract the text.")
 
     sample_images = [
