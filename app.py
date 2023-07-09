@@ -14,9 +14,9 @@ def main():
     st.write("Upload an image of a handwritten form to extract the text.")
 
     sample_images = [
-        "handwrittenImages/image.jpg",
-        "handwrittenImages/image2.jpg",
-        "handwrittenImages/image3.jpg"
+        "image1.png",
+        "image2.png",
+        "image3.png"
     ]
 
     uploaded_file = st.file_uploader("Upload Image", type=['jpg', 'jpeg', 'png'])
@@ -31,11 +31,11 @@ def main():
 
     st.subheader("Selected Image:")
 
-    image = Image.open(selected_image)
+    image = Image.open("handwrittenImage/"+selected_image)
     st.image(image, use_column_width=True)
 
     if st.button("Use this Image"):
-        with open(selected_image, "rb") as f:
+        with open("handwrittenImage/"+selected_image, "rb") as f:
             image_bytes = f.read()
         output = query(image_bytes)
         st.write("Extracted Text:")
