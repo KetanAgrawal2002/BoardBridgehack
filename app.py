@@ -35,7 +35,7 @@ def main():
     st.image(image, use_column_width=True)
 
     if st.button("Use this Image"):
-        with open("handwrittenImage/"+selected_image, "rb") as f:
+        with open("handwrittenImages/"+selected_image, "rb") as f:
             image_bytes = f.read()
         output = query(image_bytes)
         st.write("Extracted Text:")
