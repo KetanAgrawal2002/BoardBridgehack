@@ -9,18 +9,18 @@ def query(file):
     return response.text
 
 def main():
-    st.title("Handwritten Text Extraction")
+    st.title("Documented Form Text Extraction")
     st.write("Upload an image of a handwritten form to extract the text.")
 
-     sample_images = [
+    sample_images = [
         "image.jpg",
         "image2.jpg",
         "image3.jpg"
     ]
-    
+
     uploaded_file = st.file_uploader("Upload Image", type=['jpg', 'jpeg', 'png'])
-    
-   if uploaded_file is not None:
+
+    if uploaded_file is not None:
         image_bytes = uploaded_file.read()
         output = query(image_bytes)
         st.write("Extracted Text:")
