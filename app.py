@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from PIL import Image
 
 API_URL = "https://api-inference.huggingface.co/models/microsoft/trocr-base-handwritten"
 headers = {"Authorization": "Bearer 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"}
