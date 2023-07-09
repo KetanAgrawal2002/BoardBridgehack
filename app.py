@@ -31,7 +31,7 @@ def main():
 
     st.subheader("Selected Image:")
 
-    image = Image.open("handwrittenImage/"+selected_image)
+    image = Image.open("handwrittenImages/"+selected_image)
     st.image(image, use_column_width=True)
 
     if st.button("Use this Image"):
